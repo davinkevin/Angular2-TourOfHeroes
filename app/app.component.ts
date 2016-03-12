@@ -1,13 +1,12 @@
 /**
  * Created by kevin on 05/03/2016.
  */
-import { Component }       from 'angular2/core';
+import { Component, Type}       from 'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
-import { HeroService }     from './hero.service';
-import HeroesComponent from './heroes.component';
-import {DashboardComponent} from './dashboard.component';
-import {Type} from "angular2/core";
-import {HeroDetailComponent} from "./hero-detail.component";
+import {DashboardComponent} from './dashboard/dashboard.component';
+import { HeroDetailComponent } from "./heroes/details/hero-detail.component";
+import HeroesComponent from "./heroes/heroes.component";
+import {HeroService} from "./common/service/hero.service";
 
 
 @Component({
@@ -18,10 +17,9 @@ import {HeroDetailComponent} from "./hero-detail.component";
             <a [routerLink]="['Heroes']">Heroes</a>
             <a [routerLink]="['Dashboard']">Dashboard</a>
         </nav>
-        <!--<my-heroes></my-heroes>-->
         <router-outlet></router-outlet>
     `,
-    styleUrls : ['./app/app.component.css'],
+    styleUrls : ['app/app.component.css'],
     directives: [ ROUTER_DIRECTIVES ],
     providers: [ ROUTER_PROVIDERS, HeroService ]
 })

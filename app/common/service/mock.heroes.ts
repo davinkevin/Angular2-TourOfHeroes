@@ -1,7 +1,7 @@
 /**
  * Created by kevin on 05/03/2016.
  */
-import {Hero} from './hero';
+import {Hero} from "../entity/hero";
 
 export let HEROES: Hero[] = [
     { "id": 11, "name": "Luke Skywalker" },
