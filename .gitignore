@@ -5,3 +5,4 @@ app/*.js
 app/*.map
 .idea
 dist
+/coverage/
