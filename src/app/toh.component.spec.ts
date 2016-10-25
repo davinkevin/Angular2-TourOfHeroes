@@ -4,6 +4,8 @@ import {TestBed, async, ComponentFixture} from '@angular/core/testing';
 import { TohComponent } from './toh.component';
 import {FormsModule} from '@angular/forms';
 import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
+import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {Hero} from './shared/hero';
 
 describe('App: Angular2TourOfHeroes', () => {
 
@@ -11,7 +13,7 @@ describe('App: Angular2TourOfHeroes', () => {
     compiled: HTMLElement,
     app: TohComponent;
 
-  let heroes = [
+  let heroes: Hero[] = [
     {id: 11, name: 'Mr. Nice'},
     {id: 12, name: 'Narco'},
     {id: 13, name: 'Bombasto'},
@@ -28,14 +30,14 @@ describe('App: Angular2TourOfHeroes', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [TohComponent]
+      declarations: [TohComponent, HeroDetailComponent]
     });
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TohComponent);
-    compiled = fixture.debugElement.nativeElement;
-    app = fixture.debugElement.componentInstance;
+    compiled = fixture.nativeElement;
+    app = fixture.componentInstance;
   });
 
   it('should create the app', async(() => {
@@ -88,7 +90,6 @@ describe('App: Angular2TourOfHeroes', () => {
     /* Then  */
     expect(app.selectedHero).toBeDefined();
     expect(app.selectedHero).toEqual(heroes[0]);
-    expect(compiled.querySelectorAll('h2')[1].textContent).toEqual(`${app.selectedHero.name} details!`);
     expect(selectedElement.className).toEqual('selected');
   }));
 
