@@ -1,17 +1,15 @@
 /* tslint:disable:no-unused-variable */
 
 import {TestBed, async, ComponentFixture} from '@angular/core/testing';
-import { TohComponent } from './toh.component';
+import {TohComponent} from './toh.component';
 import {FormsModule} from '@angular/forms';
-import {BrowserDomAdapter} from '@angular/platform-browser/src/browser/browser_adapter';
 import {HeroDetailComponent} from './hero-detail/hero-detail.component';
 import {Hero} from './shared/hero';
 
 describe('App: Angular2TourOfHeroes', () => {
-
-  let fixture: ComponentFixture<TohComponent>,
-    compiled: HTMLElement,
-    app: TohComponent;
+  let comp: TohComponent;
+  let fixture: ComponentFixture<TohComponent>;
+  let el: HTMLElement;
 
   let heroes: Hero[] = [
     {id: 11, name: 'Mr. Nice'},
@@ -26,7 +24,6 @@ describe('App: Angular2TourOfHeroes', () => {
     {id: 20, name: 'Tornado'}
   ];
 
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
@@ -36,24 +33,24 @@ describe('App: Angular2TourOfHeroes', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TohComponent);
-    compiled = fixture.nativeElement;
-    app = fixture.componentInstance;
+    el = fixture.debugElement.nativeElement;
+    comp = fixture.componentInstance;
   });
 
-  it('should create the app', async(() => {
-    expect(app).toBeTruthy();
+  it('should create the comp', async(() => {
+    expect(comp).toBeTruthy();
   }));
 
   it(`should have as title 'Tour of Heroes'`, async(() => {
-    expect(app.title).toEqual('Tour of Heroes');
+    expect(comp.title).toEqual('Tour of Heroes');
   }));
 
   it('should have list of heroes attached', async(() => {
-    expect(app.heroes).toEqual(heroes);
+    expect(comp.heroes).toEqual(heroes);
   }));
 
   it('should have no selected heroes defiened', async(() => {
-    expect(app.selectedHero).toBeUndefined();
+    expect(comp.selectedHero).toBeUndefined();
   }));
 
   it('should have title in a h1 tag', async(() => {
@@ -61,7 +58,7 @@ describe('App: Angular2TourOfHeroes', () => {
     /* When  */
     fixture.detectChanges();
     /* Then  */
-    expect(compiled.querySelector('h2').textContent).toContain('My Heroes');
+    expect(el.querySelector('h2').textContent).toContain('My Heroes');
   }));
 
   it('should have the list of heroes shown', async(() => {
@@ -70,7 +67,8 @@ describe('App: Angular2TourOfHeroes', () => {
 
     /* When  */
     fixture.detectChanges();
-    let lis = [].slice.call(compiled.querySelectorAll('ul.heroes li'))
+    let lis = [].slice
+      .call(el.querySelectorAll('ul.heroes li'))
       .map(li => li.childNodes[2].textContent.trim());
 
     /* Then  */
@@ -81,15 +79,15 @@ describe('App: Angular2TourOfHeroes', () => {
   it('should show edition if element is selected', async(() => {
     /* Given */
     fixture.detectChanges();
-    let selectedElement = (<HTMLElement> compiled.querySelector('li:first-child'));
+    let selectedElement = (<HTMLElement> el.querySelector('li:first-child'));
 
     /* When  */
     selectedElement.click();
     fixture.detectChanges();
 
     /* Then  */
-    expect(app.selectedHero).toBeDefined();
-    expect(app.selectedHero).toEqual(heroes[0]);
+    expect(comp.selectedHero).toBeDefined();
+    expect(comp.selectedHero).toEqual(heroes[0]);
     expect(selectedElement.className).toEqual('selected');
   }));
 

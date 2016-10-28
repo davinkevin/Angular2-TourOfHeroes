@@ -19,8 +19,8 @@ describe('HeroDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(HeroDetailComponent);
     component = fixture.componentInstance;
+    el = fixture.debugElement.nativeElement;
 
-    el = fixture.nativeElement;
     fixture.detectChanges();
   });
 
