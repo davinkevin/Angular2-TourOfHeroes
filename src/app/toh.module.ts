@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { TohComponent } from './toh.component';
 import {FormsModule} from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import {HeroService} from './shared/hero/hero.service';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     TohComponent,
     HeroDetailComponent
   ],
-  bootstrap: [ TohComponent ]
-
+  bootstrap: [ TohComponent ],
+  providers: [ HeroService ]
 })
 export class TohModule { }
