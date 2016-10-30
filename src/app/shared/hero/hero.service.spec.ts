@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import {TestBed, inject, fakeAsync, tick} from '@angular/core/testing';
+import {TestBed, inject, async} from '@angular/core/testing';
 import { HeroService } from './hero.service';
 import {HEROES} from './mock-heroes';
 
@@ -15,14 +15,19 @@ describe('Service: Hero', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should provide a list of Heroes after a 2 seconds delay', fakeAsync(inject([HeroService], (heroService: HeroService) => {
-    /* Given */
-    let heroesPromise = heroService.getHeroesSlowly();
-
+  it('should provide a list of Heroes', async(inject([HeroService], (heroService: HeroService) => {
     /* When */
-    tick(2000);
-
+    let heroesPromise = heroService.getHeroes();
     /* Then */
     heroesPromise.then((heroes) => { expect(heroes).toEqual(HEROES); });
+  })));
+
+  it('should get hero', async(inject([HeroService], (heroService: HeroService) => {
+    heroService
+      .getHero(12)
+      .then(hero => {
+        expect(hero.id).toEqual(12);
+        expect(hero.name).toEqual('Narco');
+      });
   })));
 });
