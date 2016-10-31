@@ -71,6 +71,10 @@
   dependencies:
     "@angular-cli/ast-tools" "^1.0.0"
 
+"@types/core-js":
+  version "0.9.34"
+  resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.34.tgz#72c521d8e59fdaa8b65f76db71fa53c82c7c21c5"
+
 "@types/jasmine@^2.2.30", "@types/jasmine@^2.2.31":
   version "2.5.35"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.35.tgz#5566406dc8417d380d6c2f9562ec3c71ec28ef78"
@@ -243,6 +247,10 @@ angular-cli@1.0.0-beta.19-3:
     webpack-md5-hash "0.0.5"
     webpack-merge "^0.14.0"
     zone.js "^0.6.23"
+
+angular-in-memory-web-api:
+  version "0.1.14"
+  resolved "https://registry.yarnpkg.com/angular-in-memory-web-api/-/angular-in-memory-web-api-0.1.14.tgz#278401d93dfcfd4ecee81090872cb9d4c96d9fbd"
 
 angular2-template-loader@^0.5.0:
   version "0.5.0"
