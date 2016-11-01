@@ -147,9 +147,9 @@ describe('Service: Hero', () => {
     });
   })));
 
-  it('should get an error from as message', async(inject([HeroService], (heroService: HeroService) => {
+  it('should get an error as message', async(inject([HeroService], (heroService: HeroService) => {
     /* Given */
-    let message = 'Error during fetch of elements';
+    let message : any = 'Error during fetch of elements';
     let conn: MockConnection;
     mockBackend.connections.subscribe((c: MockConnection) => {
       c.mockError(message as Error);
