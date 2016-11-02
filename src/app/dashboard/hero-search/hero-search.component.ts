@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {HeroService} from '../shared/hero/hero.service';
+import {HeroService} from '../../shared/hero/hero.service';
 import {Observable, Subject} from 'rxjs';
-import {Hero} from '../shared/hero';
+import {Hero} from '../../shared/hero';
+import {Router} from '@angular/router';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'toh-hero-search',
-  templateUrl: './hero-search.component.html',
-  styleUrls: ['./hero-search.component.scss']
+  templateUrl: 'hero-search.component.html',
+  styleUrls: ['hero-search.component.scss']
 })
 export class HeroSearchComponent implements OnInit {
 

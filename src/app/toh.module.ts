@@ -12,7 +12,7 @@ import {HeroesComponent} from './heroes/heroes.component';
 import {HeroService} from './shared/hero/hero.service';
 import {TohRoutingModule} from './toh-routing.module';
 import {TohComponent} from './toh.component';
-import {HeroSearchComponent} from './hero-search/hero-search.component';
+import {HeroSearchComponent} from './dashboard/hero-search/hero-search.component';
 
 @NgModule({
   imports: [

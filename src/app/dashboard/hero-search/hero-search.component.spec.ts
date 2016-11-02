@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
-import {async, ComponentFixture, TestBed, fakeAsync, tick} from '@angular/core/testing';
+import {DebugElement} from '@angular/core';
+import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 
-import {HeroService} from '../shared/hero/hero.service';
+import {Hero} from '../../shared/hero';
+import {HeroService} from '../../shared/hero/hero.service';
+import {HEROES} from '../../shared/hero/mock-heroes';
 
 import {HeroSearchComponent} from './hero-search.component';
 
 import Spy = jasmine.Spy;
-import {HEROES} from '../shared/hero/mock-heroes';
-import {Observable} from 'rxjs';
-import {DebugElement} from '@angular/core';
-import {Hero} from '../shared/hero';
 
 describe('HeroSearchComponent', () => {
   let component: HeroSearchComponent;
